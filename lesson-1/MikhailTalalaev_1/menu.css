@@ -1,0 +1,12 @@
+.menu ul {
+    display: none;
+}
+.menu ul {
+    display: none;
+}
+.menu > ul {
+    display: block;
+}
+.menu .open-menu > ul {
+    display: block;
+}
