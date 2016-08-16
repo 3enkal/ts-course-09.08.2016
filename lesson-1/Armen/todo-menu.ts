@@ -1,12 +1,12 @@
-type menuList = {
-    title:string,
-    items?:{}[]
-}[];
-
 // type menuList = {
 //     title:string,
-//     items?:menuList
+//     items?:{}[]
 // }[];
+
+type menuList = {
+    title:string,
+    items?:menuList
+}[];
 
 let menu:menuList = [
     {
@@ -45,7 +45,7 @@ function generateMenu(menuList:menuList):string {
         $ul += `<li><a class=${menuList[node].items && menuList[node].items.length ? 'title' : ""}>${menuList[node].title}</a>`;
 
         if (menuList[node].items) {
-            let parent:any = menuList; // ВОПРОС: как правильно определить тут тип? мне все время редактор ошибку выдалавал, пока я не задал any
+            let parent = menuList; // ВОПРОС: как правильно определить тут тип? мне все время редактор ошибку выдалавал, пока я не задал any
             $ul += generateMenu(parent[node]['items']);
         }
 

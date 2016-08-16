@@ -56,7 +56,7 @@ class Menu implements IMenu {
     container.innerHTML = "";
   }
 
-  protected _createList(menuList: menuList): string {
+  protected _createList(menuList: typeof fixtures): string {
     let classes = this._passedOpts.classes;
 
     let template = `<ul>`;
@@ -69,7 +69,7 @@ class Menu implements IMenu {
       template += `<a class="${titleClass}">${menuItem.title}</a>`;
 
       // Дочерний список. Почему assertion не хочет работать?
-      template += hasChildList ? this._createList(menuItem.items as menuList) : "";
+      template += hasChildList ? this._createList(menuItem.items as typeof fixtures) : "";
 
       template += `</li>`;
     }

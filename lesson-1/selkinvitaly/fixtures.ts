@@ -2,7 +2,7 @@
 
 type menuList = { title: string, items?: menuList }[];
 
-let menuList:menuList = [
+ let menuList:menuList = [
   {
     title: "Животные", items: [
       {
