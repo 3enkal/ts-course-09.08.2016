@@ -2,6 +2,12 @@
 
 import fixtures from "./fixtures";
 
+/**
+ * /// <reference path="./fixtures.ts"/>
+ * попробуем исправить ??????
+ * */
+
+
 interface IMenu {
   render(): string;
   init(): void;
