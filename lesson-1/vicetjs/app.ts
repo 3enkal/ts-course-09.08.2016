@@ -69,8 +69,15 @@ let menu: menuListType = [
 function createMenuList(menuList: menuListType) : string {
     if ( !menuList ) return '';
 
+    /**
+     * используйте let ||  const
+     */
+
     var html: string = '<div class="menu-list">';
 
+    /**
+     * используйте arrow function
+     */
     menuList.forEach(function(menuItem: menuItemType) : void {
         html += '<div class="menu-item">';
         html += `<span class="title">${ menuItem.title }</span>`;

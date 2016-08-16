@@ -7,7 +7,13 @@ type MenuItem = {title: string, items: MenuItem[]};
 /* Functions */
 
 function generateList(items: MenuItem[], html: string = '') {
+    /**
+     * используйте отрицательную логику
+     */
     if (items && items.length) {
+        /**
+         * почему везде не использовать шаблоны
+         */
         html +=
             '<ul>' +
                 items.reduce((str, item: MenuItem) => str += generateItem(item), '') +
@@ -19,6 +25,9 @@ function generateList(items: MenuItem[], html: string = '') {
 }
 
 function generateItem(item: MenuItem) {
+    /**
+     * почему везде не использовать шаблоны
+     */
     return  `<li><a class="${item.items ? 'title' : ''}">` + item.title + '</a>' +
                 generateList(item.items) +
             '</li>';

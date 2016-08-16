@@ -1,6 +1,11 @@
 type MenuItem = {title: string, items?: MenuList};
 type MenuList = MenuItem[];
 
+
+/**
+ * все ли методы публичны ????
+ *
+ */
 interface IMenuGenerator {
     init(): this;
     openList(): this;
