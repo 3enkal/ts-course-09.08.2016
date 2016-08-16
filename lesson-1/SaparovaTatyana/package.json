@@ -1,0 +1,20 @@
+{
+    "name": "SaparovaTatyana",
+    "version": "1.0.0",
+    "description": "",
+    "main": "menu.js",
+    "scripts": {
+        "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+        "lite": "lite-server",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^2.2.0",
+        "lite-server": "^2.2.2",
+        "typescript": "^1.8.10"
+    }
+}
