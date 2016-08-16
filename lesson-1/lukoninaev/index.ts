@@ -5,6 +5,10 @@ import RecursiveMenu from './menu/menu';
 // type recursiveMenuDataT = {title: string, items?: recursiveMenuDataT}[];
 // let menuData:recursiveMenuDataT = ...;
 
+// ??? и здесь же вопрос про импорт типа
+// ??? хотелось бы объявить его в module menu для валидации параметра конструктора класса
+// ??? и импортировать сюда для валидации данных
+
 let menuData = [
     {
         title: 'Животные',
