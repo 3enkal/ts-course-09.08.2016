@@ -19,6 +19,8 @@ export default class RecursiveMenu {
             template += `<li>
                             <a ${!!(item.items) ? 'class="title"' : ''}>${item.title}</a>`;
 
+
+            // используйте return
             if (!!(item.items)) {
                 template += this.generateMenuTemplate(item.items);
             } else {
