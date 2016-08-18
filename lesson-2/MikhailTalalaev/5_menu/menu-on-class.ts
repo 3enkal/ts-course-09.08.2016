@@ -17,18 +17,45 @@ class Menu {
     }
 
     public toggle(): void {
-        
-    };
-    public close: void;
-    public open: void;
+        let titleElems = this.getElem.getElementsByClassName("menu-open") as NodeListOf<HTMLElement>;
+		
+		if ( titleElems.length ) {
+			this.close();
+		} else {
+			this.open();
+		}
+    }
+    public close(): void {
+		let titleElems = this.getElem.getElementsByClassName("menu-open") as NodeListOf<HTMLElement>;
+		
+		for ( let i = titleElems.length; i--; ) {
+			titleElems[i].classList.toggle('menu-open');
+		}
+	}
+    public open(): void {
+		let titleElems = this.getElem.getElementsByClassName("title") as NodeListOf<HTMLElement>;
+		
+		for ( let i = titleElems.length; i--; ) {
+			let parent = titleElems[i].parentNode as HTMLElement;
+			if ( ~parent.className.search(/\bmenu-open\b/) ) continue;
+			parent.className += " menu-open"
+		}
+	}
 
     private clickHandler(e: MouseEvent): void {
         let el = e.target as HTMLElement;
         let classList = el.classList;
+		let parentLi = el.parentNode as HTMLElement;
+		
         if (classList.contains('title')) {
-            let parentLi = el.parentNode as HTMLElement;
             parentLi.classList.toggle('menu-open');
         }
+		
+		let nestedLists = parentLi.getElementsByClassName("menu-open") as NodeListOf<HTMLElement>;
+		
+		for ( let i = nestedLists.length; i--; ) {
+			nestedLists[i].classList.toggle('menu-open');
+		}
     }
 
     private generateMenuHtml(menuList: listOfMenu): string {
