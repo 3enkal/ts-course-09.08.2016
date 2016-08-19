@@ -40,9 +40,8 @@ assert(
 function summator(...args: number[]): number;
 function summator(...args: string[]): string;
 function summator(...args: Array<number|string>): number|string {
-  return args.reduce((sum, currentItem) => sum + currentItem);
+  return args.reduce((sum:number, currentItem) => sum + parseInt(currentItem,10),0);
 }
-
 assert(
   summator(1,2,3),
   6

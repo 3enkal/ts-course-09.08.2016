@@ -2,7 +2,7 @@
 
 
 
-type Types = (number|string|boolean);
+type Types = number|string|boolean;
 type Arr = Types[];
 
 function isInArray(a: Arr, ...b: Array<Types>): boolean {

@@ -2,6 +2,7 @@
 
 /// <reference path="./sliderD.d.ts"/>
 
+
 class Slider implements ISlider {
 
   protected _passedOpts;

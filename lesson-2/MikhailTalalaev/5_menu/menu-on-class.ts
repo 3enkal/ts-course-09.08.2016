@@ -12,7 +12,7 @@ class Menu {
         this.element.addEventListener('click', this.clickHandler)
     }
 
-    get getElem (): HTMLElement {
+    public get getElem (): HTMLElement {
         return this.element;
     }
 

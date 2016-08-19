@@ -1,5 +1,5 @@
 /** показывали этот случай с rest параметром*/
-function isInArray(arr:[String|Number], ...args:[String|Number]):boolean {
+function isInArray(arr:[String|Number], ...args:(String|Number)[]):boolean {
 	arr.sort();
 	args.sort();
 	
@@ -8,7 +8,7 @@ function isInArray(arr:[String|Number], ...args:[String|Number]):boolean {
 			arr.splice(i, 1);
 	}
 	for ( let i:number = args.length; i--; ) {
-		if ( args[i] === args[i - 1] ) 
+		if ( args[i] === args[i - 1] )
 			args.splice(i, 1);
 	}
 	
