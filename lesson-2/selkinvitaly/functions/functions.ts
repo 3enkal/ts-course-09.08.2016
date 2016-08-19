@@ -72,39 +72,14 @@ assert(
 );
 
 function reverse(str: string): string {
-  let parsedWord: string = "";
-  let result: string = "";
+  let result: string[] = [];
+  let words: string[] = str.split(" ");
 
-  for (let i: number = 0; i < str.length; i++) {
-    let char = str[i];
-    let isLastChar = (i === str.length - 1);
+  words.forEach(word => {
+    result.push(transformWord(word));
+  });
 
-    // если это не конец слова или предложения
-    // то продолжаем парсить слово
-    if (char !== " " && !isLastChar) {
-      parsedWord += char;
-      continue;
-    }
-
-    // если это конец, то допишем этот символ в слово
-    // а сам символ сделаем пустым, чтобы повторно не приконкатинировался
-    if (isLastChar) {
-      parsedWord += char;
-      char = "";
-    }
-
-    // если идут пустые пробелы подряд, то просто допишем их в результат
-    // чтобы не делать вызывы по трансформу слова в пустую
-    if (!parsedWord.length) {
-      result += char;
-      continue;
-    }
-
-    result += (transformWord(parsedWord) + char);
-    parsedWord = "";
-  }
-
-  return result;
+  return result.join(" ");
 
   // трансформирует передаваемое слово нужным образом
   // Q2: как сделать, чтобы можно было записывать свойства в named function declaration?
