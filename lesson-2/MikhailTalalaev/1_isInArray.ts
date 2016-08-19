@@ -1,3 +1,4 @@
+/** показывали этот случай с rest параметром*/
 function isInArray(arr:[String|Number], ...args:[String|Number]):boolean {
 	arr.sort();
 	args.sort();

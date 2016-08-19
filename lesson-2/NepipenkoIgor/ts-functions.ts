@@ -43,36 +43,6 @@ function summator(...elements:any[]):number {
 console.log(summator(1, 4, 5.5));
 console.log(summator('1.2', 'asdasd', '2.2'));
 
-/**
- * Написать функцию parseQueryString(), которая парсит строку типа a=1&b=hellow.
- * Аргумент может быть только строковой
- */
-
-// /* tslint:disable */
-// function parseQueryString(queryString = ''):any {
-//     /* tslint:enable */
-//     let resObj = {};
-//     let str = queryString.split('&');
-//     if (str.length === 1) {
-//         return resObj;
-//     }
-//     for (let s of str) {
-//         let keyVal = s.split('=');
-//         if (keyVal.length === 1) {
-//             continue;
-//         }
-//         resObj[keyVal[0]] = keyVal[1];
-//     }
-//     return resObj;
-// }
-//
-// console.log(parseQueryString());
-//
-// console.log(parseQueryString());
-//
-// console.log(parseQueryString('asadsasdasda'));
-//
-// console.log(parseQueryString('a=1&b=2&c=3'));
 
 
 /**

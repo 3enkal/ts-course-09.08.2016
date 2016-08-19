@@ -1,3 +1,4 @@
+/** почему any???? */
 function getUnique(...args:any[]):any[] {
 	if ( !args.length ) return [];
 	let arr = [args[0]];

@@ -1,6 +1,6 @@
 "use strict";
 
-/// <reference path="./todo-menu.d.ts"/>
+/// <reference path="./todoMenu.d.ts"/>
 
 let fixtures:menuList = [
   {

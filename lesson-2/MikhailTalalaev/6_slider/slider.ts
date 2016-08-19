@@ -1,5 +1,7 @@
 // просто перевод решения из js на ts 
 
+// тогда надо было arrow function и сделать классом
+
 let sliderElem = document.getElementById('slider') as HTMLElement;
 let thumbElem = sliderElem.children[0] as HTMLElement;
 

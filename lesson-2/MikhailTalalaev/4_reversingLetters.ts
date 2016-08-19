@@ -16,6 +16,7 @@ function reversingLetters(str: string): string {
 				res[i] = str[i];
 				continue;
 			}
+			/** хороший код - это тот который понятен даже не скилованому программисту*/
 			for ( ; j--; ) {
 				if ( !isLetter(str[j]) ) {
 					res[j] = str[j];

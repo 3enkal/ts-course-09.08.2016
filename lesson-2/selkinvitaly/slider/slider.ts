@@ -1,6 +1,6 @@
 "use strict";
 
-/// <reference path="./slider.d.ts"/>
+/// <reference path="./sliderD.d.ts"/>
 
 class Slider implements ISlider {
 

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "typescript": "2.1.0-dev.20160812"
+    "typescript": "2.1.0-dev.20160812",
+    "whatwg-fetch": "1.0.0"
   }
 }
