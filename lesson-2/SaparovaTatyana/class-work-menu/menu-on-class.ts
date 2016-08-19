@@ -8,22 +8,69 @@
 //  P.S. для демонстрации
 
 type listOfMenu = {title: string,link?: string,items?: listOfMenu}[]
-type menuOpt={element: HTMLElement,menuList: listOfMenu}
+type menuOpt={element:HTMLElement,menuList:listOfMenu}
 
 
 
 class Menu{
-    private element: HTMLElement;
-    private menuList: listOfMenu;
+    private element:HTMLElement;
+    
+    private menuList:listOfMenu;
 
-    constructor(opt: menuOpt) {
+    private _tmpItem:HTMLElement[] = []; // Массив для кэширования открытых элементов
+
+
+    constructor(opt:menuOpt) {
         this.element = opt.element;
         this.menuList = opt.menuList;
         this.element.innerHTML = this.generateMenuHtml(this.menuList);
         this.element.addEventListener('click', this.clickHandler);
     }
 
-    private clickHandler(e: MouseEvent): void {
+
+    public getElem():HTMLElement {
+        return this.element;
+    }
+
+
+    public open():void {
+        for (let el of this._tmpItem){
+            el.classList.add("menu-open");
+        }
+    }
+    
+    
+    public close():void {
+        let elemArr:any = this.element.querySelectorAll('.menu-open');
+
+        if (elemArr.length === 0){
+            return;
+        }
+        
+        this._tmpItem = [];
+        
+        for (let el of elemArr){
+            el.classList.remove("menu-open");
+            this._tmpItem.push(el); // кэшируем список открытых менюшек
+        }
+        
+    }
+
+
+    public toggle():void {
+        let elemArr:any = this.element.querySelectorAll('.menu-open');
+        
+        if (elemArr.length > 0){
+            // закрываем
+            this.close();
+        } else {
+            // открываем
+            this.open();
+        }
+    }
+
+
+    private clickHandler(e:MouseEvent):void {
         let el = e.target as HTMLElement;
         let classList = el.classList;
         if (classList.contains('title')) {
@@ -32,8 +79,10 @@ class Menu{
         }
     }
 
-    private generateMenuHtml(menuList: listOfMenu): string {
-        let z: string = `<ul>`
+
+    private generateMenuHtml(menuList:listOfMenu):string {
+        let z:string = '';
+
         for (let a of menuList) {
             z += `<li><a ${a.items ? 'class=title' : ''} ${a.link ? 'href=' + a.link : ''}>${a.title}</a>`;
             if (!a.items) {
@@ -42,32 +91,12 @@ class Menu{
             }
             z += `${this.generateMenuHtml(a.items)}</li>`;
         }
-        return `${z}</ul>`
+        return `<ul>${z}</ul>`
     }
-
-    public getElem ():HTMLElement {
-        return this.element;
-    }
-    public open (): void {
-        let elemArr:any = this.element.querySelectorAll('li');
-        for (let el of elemArr){
-            el.classList.add("menu-open");
-        }
-    };
-    public close (): void {
-        let elemArr:any = this.element.querySelectorAll('.menu-open');
-        for (let el of elemArr){
-            el.classList.remove("menu-open");
-        }
-        
-    };
-    public toggle (): void {
-        let elemArr:any = this.element.querySelectorAll('li');
-        for (let el of elemArr){
-            el.classList.toggle("menu-open");
-        }
-    };
 }
+
+
+
 
 
 let listOfMenu: listOfMenu = [
@@ -107,8 +136,12 @@ let listOfMenu: listOfMenu = [
     }
 ];
 
+
+
+
+
 let element = document.querySelector('.menu') as HTMLElement;
-let menuNav = new Menu({element, menuList: listOfMenu});
+let menuNav = new Menu({element, menuList:listOfMenu});
 
 document.getElementById('toggle').onclick = () => { menuNav.toggle() };
 document.getElementById('open').onclick = () => { menuNav.open() };
