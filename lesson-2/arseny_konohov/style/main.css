@@ -6,6 +6,12 @@ body {
     padding: 0;
 }
 
+body {
+    height: auto;
+    min-height: 100%;
+    padding: 10px;
+}
+
 html * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -14,7 +20,7 @@ html * {
 
 body {
     color: #eee;
-    border: solid 5px #c00;
+    border: solid 5px #aaa;
     background-color: #333;
 }
 
@@ -27,9 +33,8 @@ h1 {
 }
 
 ul {
-    margin: 0;
-    margin: 5px;
-    padding: 0 0 0 30px;
+    margin: 3px;
+    padding: 0;
     border: solid 1px #222;
 }
 
@@ -52,7 +57,7 @@ li.active> ul {
 
 a {
     display: block;
-    padding: 5px;
+    padding: 8px 10px;
     text-decoration: none;
     color: #7f7;
     border: solid 1px #444;
@@ -64,4 +69,51 @@ a.toggle {
 
 a:hover {
     color: #f77;
+}
+
+.menu {
+    position: relative;
+    min-height: 40px;
+    border: solid 1px #444;
+}
+
+.trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: solid 3px #ddd;
+    background-color: #444;
+}
+
+.trigger.active {
+    border: solid 3px #d00;
+}
+
+.menu__container {
+    display: none;
+    margin-right: 60px;
+    padding: 3px;
+    border: solid 1px #aaa;
+}
+
+.trigger.active+ .menu__container {
+    display: block;
+}
+
+.other_things {
+    padding: 10px;
+    text-align: center;
+}
+
+.other_things button {
+    font-size: 16px;
+    min-width: 100px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #eee;
 }

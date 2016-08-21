@@ -1,6 +1,5 @@
 ///<reference path="./5_menu.d.ts" />
 
-// Data for creating our navBar:
 let navBarData: menuList = [
     {
         title: "JavaScript",
@@ -35,50 +34,75 @@ let navBarData: menuList = [
 ]
 
 
-type menuList = {title: string; list ? : menuList;}[];
-type menuOptions = {element: HTMLElement; menu: menuList}
-
 class Menu {
-    private element: HTMLElement;
-    private menu:    menuList;
-    static h: string = "javascript:void(0);";
+    private element:   HTMLElement;
+    private menu:      menuList;
+    static  href:      string = "javascript:void(0);";
+    static  className: string = "menu"
 
     constructor(opt: menuOptions) {
-        this.element = opt.element;
-        this.menu    = opt.menu;
-        this.element.innerHTML = this.generateHtml(this.menu);
-        this.element.addEventListener("click", this.clickHandler);
+        this.element           = opt.selector ? document.getElementById(opt.selector) : document.getElementById("");
+        this.menu              = opt.menuData;
+        this.element.innerHTML = opt.trigger ?
+                `<div class='trigger active'></div>
+                <div  class=menu__container>${this._generateHtml(this.menu)}<div>`:
+                `${this._generateHtml(this.menu)}`;
+        this.element.addEventListener("click", this._clickItemHandler);
+        this.element.classList.add(Menu.className);
     }
 
-    private generateHtml(list:menuList):string {
-        let menu:string = `<ul>`;
+    private _generateHtml(list:menuList):string {
+        let menu:string = `<ul class=menu__list>`;
         for (let item of list) {
-            menu += `<li><a ${item.list ? "class='toggle'": ""} href=${Menu.h} >${item.title}</a>`;
+            menu += `<li class=menu__item>
+                        <a ${item.list ? "class='toggle'": ""} href=${Menu.href} >${item.title}</a>`;
             if (!item.list) {
                 menu += "</li>";
                 continue;
             }
-            menu += `${this.generateHtml(item.list)} </li>`;
+            menu += `${this._generateHtml(item.list)} </li>`;
         }
         return `${menu} </ul>`;
     }
 
-    private clickHandler(e:MouseEvent) {
+    private _clickItemHandler(e:MouseEvent) {
         let elem = e.target as HTMLElement;
         let classList = elem.classList;
         if (classList.contains("toggle")) {
             let parentItem = elem.parentNode as HTMLElement;
-            parentItem.classList.toggle("active")
+            parentItem.classList.toggle("active");
         }
+        if (classList.contains("trigger")) {
+            elem.classList.toggle("active");
+        }
+    }
+
+    public getElement() {
+        return this.element;
+    }
+
+    public menuOpen() {
+        // code here...
+    }
+
+    public menuClose() {
+        // code here...
     }
 }
 
 
-// // drop menu in to the DOM.
-let asideContainer = document.getElementById("menu_wrapper");
-let asideMenu = new Menu({element: asideContainer, menu: navBarData});
 
 
+let asideMenu = new Menu({
+    selector: "menu_wrapper",
+    menuData: navBarData,
+    trigger: true
+});
+
+
+let rootElem = asideMenu.getElement();
+// console.log(asideMenu);
+console.log(rootElem);
 
 
 
