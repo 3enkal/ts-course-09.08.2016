@@ -4,8 +4,7 @@
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": false,
-        "typeRoots": ["./node_modules/@types"],
-        "types": ["lodash","jquery"]
+        "lib": ["es2016"]
     },
     "exclude": [
         "node_modules"
