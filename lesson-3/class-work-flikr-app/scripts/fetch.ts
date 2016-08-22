@@ -49,6 +49,8 @@ declare var Response: {
 
 declare function fetch(input: string|Request): PromiseLike<Response>
 
+
+
 type opt={
     elem: HTMLElement;
     uri: string;
@@ -111,7 +113,7 @@ class FlickrApp {
 
     private getPhotos(input: string|Request, cb: (body: any)=>any): void {
         console.log(input);
-        fetch(input).then((response: Response): PromiseLike<any>=>response.json()).then(cb)
+        fetch(input).then((response: Response): PromiseLike<any>=>  response.json()).then(cb)
     }
 }
 

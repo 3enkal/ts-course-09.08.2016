@@ -24,5 +24,3 @@
 // }
 //
 // declare var A:Name_static;
-
-import * as lodash from 'lodash';
