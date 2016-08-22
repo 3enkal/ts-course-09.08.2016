@@ -1,6 +1,6 @@
 ///<reference path="./5_menu.d.ts" />
 
-let navBarData: menuList = [
+let menuData: menuList = [
     {
         title: "JavaScript",
         list: [
@@ -43,8 +43,8 @@ class Menu {
     constructor(opt: menuOptions) {
         this.element           = opt.selector ? document.getElementById(opt.selector) : document.getElementById("");
         this.menu              = opt.menuData;
-        this.element.innerHTML = opt.trigger ?
-                `<div class='trigger active'></div>
+        this.element.innerHTML = opt.toggle ?
+                `<div class='trigger ion ion-menu active'></div>
                 <div  class=menu__container>${this._generateHtml(this.menu)}<div>`:
                 `${this._generateHtml(this.menu)}`;
         this.element.addEventListener("click", this._clickItemHandler);
@@ -77,34 +77,39 @@ class Menu {
         }
     }
 
-    public getElement() {
+    public getElement(): HTMLElement {
         return this.element;
     }
-
-    public menuOpen() {
-        // code here...
+    public menuClose(): void {
+        this.element.classList.add("hidden");
     }
-
-    public menuClose() {
-        // code here...
+    public menuOpen(): void {
+        this.element.classList.remove("hidden");
     }
 }
 
-
-
-
+// instance:
 let asideMenu = new Menu({
     selector: "menu_wrapper",
-    menuData: navBarData,
-    trigger: true
+    menuData: menuData,
+    toggle:   true
 });
 
 
-let rootElem = asideMenu.getElement();
-// console.log(asideMenu);
-console.log(rootElem);
 
 
+// YOU CAN USE PUBLIC AS OUTPUT FROM your MODULE
+
+// get root element:
+console.log(asideMenu.getElement());
+
+// open & close public methods useing:
+document.getElementById("selector_close").addEventListener("click", () => {
+    asideMenu.menuClose();
+});
+document.getElementById("selector_open").addEventListener("click", () => {
+    asideMenu.menuOpen();
+});
 
 
 

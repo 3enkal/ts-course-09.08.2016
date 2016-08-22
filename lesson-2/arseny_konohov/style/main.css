@@ -75,6 +75,7 @@ a:hover {
     position: relative;
     min-height: 40px;
     border: solid 1px #444;
+    /*width: 400px;*/
 }
 
 .trigger {
@@ -85,12 +86,8 @@ a:hover {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    border: solid 3px #ddd;
-    background-color: #444;
-}
-
-.trigger.active {
-    border: solid 3px #d00;
+    border: solid 2px gold;
+    background-color: #222;
 }
 
 .menu__container {
@@ -102,6 +99,37 @@ a:hover {
 
 .trigger.active+ .menu__container {
     display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.ion::before {
+    font-family: 'Ionicons';
+    font-size: 34px;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    line-height: 36px;
+    position: absolute;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    text-transform: none;
+    speak: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ion.trigger::before {
+    content: '\f20e';
+}
+
+.ion.trigger.active::before {
+    content: '\f2d7';
 }
 
 .other_things {

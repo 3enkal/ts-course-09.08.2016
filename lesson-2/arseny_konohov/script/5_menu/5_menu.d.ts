@@ -8,7 +8,7 @@ type menuList = {
 type menuOptions = {
     selector: string;
     menuData: menuList;
-    trigger? : boolean
+    toggle? : boolean
 }
 
 
