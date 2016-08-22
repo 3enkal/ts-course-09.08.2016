@@ -101,7 +101,7 @@ let asideMenu = new Menu({
 // YOU CAN USE PUBLIC AS OUTPUT FROM your MODULE
 
 // get root element:
-console.log(asideMenu.getElement());
+// console.log(asideMenu.getElement());
 
 // open & close public methods useing:
 document.getElementById("selector_close").addEventListener("click", () => {
