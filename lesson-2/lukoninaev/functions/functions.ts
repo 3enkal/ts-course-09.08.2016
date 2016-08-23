@@ -34,9 +34,18 @@ function isInArray(array: simpleType[], ...values: simpleType[]): boolean {
  * 2)
  */
 function summator(...args: number[]): number;
-function summator(...args: string[]): string;
-function summator(...args: any[]): any {
-    return args.reduce((sum, arg) => sum + arg);
+function summator(...args: string[]): number;
+function summator(...args: Array<number|string>): number {
+    //??? Почему ошибка
+    return args.reduce((sum: number, arg: number|string) => {
+        let argNumber: number = parseInt(arg.toString(), 10);
+
+        if (isNaN(argNumber)) {
+            argNumber = 0;
+        }
+
+        return sum + argNumber;
+    }, 0);
 }
 
 
@@ -65,20 +74,21 @@ function inversLetters(phrase: string): string {
     let words: string[] = phrase.split(' '),
         resultWords: string[] = [],
         symbols: string[],
+        reverseSymbols: string[],
         resultSymbols: string[];
 
     for (let i: number = 0; i < words.length; i++) {
         symbols = words[i].split('');
+        reverseSymbols = words[i].replace(/[^a-zA-Z]/g, '').split('').reverse();
         resultSymbols = new Array(symbols.length);
 
-        for (let j: number = 0; j < symbols.length; j++) {
-            if (!/[a-zA-Z].*/.test(symbols[j]) ||
-                /[a-zA-Z].*/.test(symbols[j]) && !/[a-zA-Z].*/.test( symbols[symbols.length - 1 - j] )) {
+        for (let j: number = 0, k: number = 0; j < symbols.length; j++) {
+            if (!/[a-zA-Z].*/.test(symbols[j])) {
                 resultSymbols[j] = symbols[j];
                 continue;
             }
 
-            resultSymbols[symbols.length - 1 - j] = symbols[j];
+            resultSymbols[j] = reverseSymbols[k++];
         }
 
         resultWords.push(resultSymbols.join(''));
