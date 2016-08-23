@@ -39,7 +39,7 @@ class Flickr {
       e.preventDefault();
 
       let target: HTMLElement = <HTMLElement>e.target;
-      let ownerId: string = target.dataset.owner;
+      let ownerId: string = target.dataset["owner"];
 
       if (!ownerId) {
         return;
