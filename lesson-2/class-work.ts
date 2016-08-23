@@ -178,3 +178,10 @@
 // let acc= new Account();
 // acc.name='Igor';
 // console.log(acc.name);
+
+
+/// <reference path="../node_modules/typescript/lib/lib.es2015.d.ts" />
+/// <reference path="../node_modules/typescript/lib/lib.es2016.array.include.d.ts" />
+
+
+let a:Array<any>

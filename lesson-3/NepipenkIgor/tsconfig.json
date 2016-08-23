@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "experimentalDecorators":true,
+    "typeRoots": ["../node_modules/@types"],
+    "types": ["lodash"]
+  },
+  "exclude": [
+    "**/*.d.ts"
+  ]
+}
