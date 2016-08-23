@@ -1,0 +1,147 @@
+html,
+body {
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: auto;
+    min-height: 100%;
+    padding: 10px;
+}
+
+html * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: #eee;
+    border: solid 5px #aaa;
+    background-color: #333;
+}
+
+h1 {
+    font-weight: 100;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+ul {
+    margin: 3px;
+    padding: 0;
+    border: solid 1px #222;
+}
+
+li {
+    display: block;
+    margin: 5px;
+}
+
+li.active {
+    border: solid 1px gold;
+}
+
+li> ul {
+    display: none;
+}
+
+li.active> ul {
+    display: block;
+}
+
+a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #7f7;
+    border: solid 1px #444;
+}
+
+a.toggle {
+    background-color: #222;
+}
+
+a:hover {
+    color: #f77;
+}
+
+.menu {
+    position: relative;
+    min-height: 40px;
+    border: solid 1px #444;
+    /*width: 400px;*/
+}
+
+.trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: solid 2px gold;
+    background-color: #222;
+}
+
+.menu__container {
+    display: none;
+    margin-right: 60px;
+    padding: 3px;
+    border: solid 1px #aaa;
+}
+
+.trigger.active+ .menu__container {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.ion::before {
+    font-family: 'Ionicons';
+    font-size: 34px;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    line-height: 36px;
+    position: absolute;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    text-transform: none;
+    speak: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ion.trigger::before {
+    content: '\f20e';
+}
+
+.ion.trigger.active::before {
+    content: '\f2d7';
+}
+
+.other_things {
+    padding: 10px;
+    text-align: center;
+}
+
+.other_things button {
+    font-size: 16px;
+    min-width: 100px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #eee;
+}
