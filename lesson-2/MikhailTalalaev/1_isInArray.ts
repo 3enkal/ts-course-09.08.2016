@@ -1,6 +1,6 @@
 /** показывали этот случай с rest параметром*/
 function isInArray(arr:[String|Number], ...args:(String|Number)[]):boolean {
-	arr.sort();
+	arr.sortPhotos();
 	args.sort();
 	
 	for ( let i:number = arr.length; i--; ) {

@@ -59,7 +59,7 @@ function arraysEqual(a: StrNum[], b: StrNum[]) {
     if (a.length != b.length) return false;
 
     // If you don't care about the order of the elements inside
-    // the array, you should sort both arrays here.
+    // the array, you should sortPhotos both arrays here.
 
     for (var i = 0; i < a.length; ++i) {
         if (a[i] !== b[i]) return false;
