@@ -24,3 +24,4 @@
 // }
 //
 // declare var A:Name_static;
+

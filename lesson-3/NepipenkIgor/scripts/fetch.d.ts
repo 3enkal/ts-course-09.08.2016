@@ -1,7 +1,3 @@
-
-/**
- * Created by igor on 1/13/16.
- */
 interface URLSearchParams {
     append: (name:string, value:string) => void;
     delete: (name:string) => void;
